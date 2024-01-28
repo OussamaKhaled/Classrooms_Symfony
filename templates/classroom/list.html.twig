@@ -1,0 +1,30 @@
+
+<!--{% for class in classroom %}
+  <h1> prenom: {{ class.id }}</h1>
+    <br>
+   <h1> nom: {{ class.Name }}</h1>
+{% endfor %}-->
+<center><table border="1" width="30%" style="border: orangered; text-align: center">
+<caption><h1>Liste des Classrooms</h1></caption>
+  <tr>
+    <th>Id</th>
+    <th>Class Name</th>
+    <th colspan="2">Editer</th>
+    
+   
+  </tr>
+  {% for class in classroom %}
+  <tr>
+    <td>{{ class.id }}</td>
+    <td>{{ class.Name }}</td>
+    
+  <td><a href="{{path('update_Class',{id:class.id})}}">Modifier</a></td>
+  <td><a href="{{path('delete_Class',{id:class.id})}}">Supprimer</a></td>  
+  </tr>
+  
+  
+  {% endfor %}
+  
+</table>
+<a href="{{path('add_class')}}"> Ajouter une classe</a>
+</center>

@@ -1,0 +1,47 @@
+<p> Le nombre de formation est: {{ list|length }} </p>
+
+{% set total = 0 %}
+{% for f in list %}
+    {% set total = total +   f.nb_participants %}
+{% endfor %}
+<h1> Le nombre total de participants = {{ total }} </h1>
+
+<table border=1>
+<tr><th>Titre</th></tr>
+{% for formation in list %}
+<tr>
+    <td> {{ formation.Titre|upper() }} </td>
+</tr>
+{% endfor %}
+</table>
+
+<br>
+
+<table border=1>
+<tr><th>Titre</th></tr>
+{% for formation in list %}
+{% if 'theorique' in formation.Description %}
+<tr>
+    <td> {{ formation.Titre|upper() }} </td>
+</tr>
+{% endif %}
+{% endfor %}
+</table>
+
+<br>
+
+{% set maxValue = 0 %}
+{% for f in list %}
+    {% set maxValue = max(f.nb_participants, maxValue) %}
+{% endfor %}
+
+<table border=1>
+<tr><th>Titre</th></tr>
+{% for formation in list %}
+{% if formation.nb_participants == maxValue %}
+<tr>
+    <td> {{ formation.Titre|upper() }} </td>
+</tr>
+{% endif %}
+{% endfor %}
+</table>

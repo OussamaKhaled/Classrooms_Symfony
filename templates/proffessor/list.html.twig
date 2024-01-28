@@ -1,0 +1,30 @@
+
+
+<center><table border="1" width="30%" style="border: orangered; text-align: center">
+<caption><h1>Liste des Professors</h1></caption>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>CIN</th>
+    <th colspan="2">Editer</th>
+    
+    
+   
+  </tr>
+  {% for prof in professor %}
+  <tr>
+    <td>{{ prof.id }}</td>
+    <td>{{ prof.Name }}</td>
+    <td>{{ prof.Cin }}</td>
+    <td><a href="{{path('update_Prof',{id:prof.id})}}">Modifier</a></td>
+  <td><a href="{{path('delete_Prof',{id:prof.id})}}">Supprimer</a></td>
+    
+  
+  </tr>
+  
+  
+  {% endfor %}
+  
+</table>
+<a href="{{path('add_prof')}}"> Ajouter un prof</a>
+</center>

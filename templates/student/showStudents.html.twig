@@ -1,0 +1,28 @@
+
+<!--{% for stu in students %}
+  <h1> prenom: {{ stu.lastName }}</h1>
+    <br>
+   <h1> nom: {{ stu.firstName }}</h1>
+{% endfor %}-->
+<center><table border="1">
+  <tr>
+    <th>Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Detail</th>
+    <th>Delete</th>
+    <th>update</th>
+   
+  </tr>
+  {% for stu in students %}
+  <tr>
+    <td>{{ stu.id }}</td>
+    <td>{{ stu.lastName }}</td>
+    <td>{{ stu.firstName }}</td>
+    <td><a href="{{path('detail_Student',{id:stu.id})}}">Details Student</a></td>
+    <td><a href="{{path('delete_Student',{id:stu.id})}}">Delete Student</a></td>
+    <td><a href="{{path('update_Student',{id:stu.id})}}">update</a></td>
+  </tr>
+  <a href="{{path('add_Student')}}"> Ajouter </a>
+  {% endfor %}
+</table></center>
